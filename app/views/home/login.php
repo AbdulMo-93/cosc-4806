@@ -15,7 +15,7 @@
 	</form>
 	<br/>
 	<br/>
-	<a href="/Reports/attempts"> Report </a>
+	<a href="/reports/attempts"> Report </a>
 	<br/>
 	<br/>
 	<a href="/login/register"> Create Account </a>
