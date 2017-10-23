@@ -8,16 +8,16 @@
 		Username:<br/>
 		<input type="text" name="username"><br/>
 		Password<br/>
-		<input type="password" name="password1"><br/>
+		<input type="password" name="password"><br/>
 		<br/>		
 		<input type="submit" value="Login">
 		
 	</form>
-	<form method="post" action= "report.php">
-		<br/>
-		<input type="submit" value="Report">
-		<br/>
-	</form>
+	<br/>
+	<br/>
+	<a href="/Reports/attempts"> Report </a>
+	<br/>
+	<br/>
 	<a href="/login/register"> Create Account </a>
 </body>
 </html>

@@ -21,6 +21,8 @@
 </html>
 			</form>
 			<a href="/login/register"> Sign up here </a>
+			<br/><br/>
+			<a href="/login/index"> Back to login page! </a>
         </div>
     </div>
 

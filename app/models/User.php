@@ -21,13 +21,18 @@ class User {
 		 
 		$db = db_connect();
         $statement = $db->prepare("select * from users
-                                WHERE Username = :name; AND Password = :pass;");
+                                WHERE Username = :name;");
         $statement->bindValue(':name', $this->username);
-		$statement->bindValue(':pass', $this->password);
         $statement->execute();
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 		
-		if ($rows) {
+		$statement = $db->prepare("select * from users
+                                WHERE Password = :pass;");
+		$statement->bindValue(':pass', $this->password);
+        $statement->execute();
+        $rows2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+		
+		if ($rows && $rows2) {
 			$this->auth = true;
 			$_SESSION['username'] = $rows[0]['username'];
 			$_SESSION['password'] = $rows[0]['password'];
@@ -36,13 +41,10 @@ class User {
 	
 	public function register ($username, $password, $fname, $lname, $email) {
 		$db = db_connect();
-        $statement = $db->prepare("INSERT INTO users (Username,Password, First name, Last name, E-mail)"
-                . " VALUES (:name, :pass, :fname, :lname, :email); ");
-		$statement->bindValue(':name', $username);
-		$statement->bindValue(':pass', $password);
-		$statement->bindValue(':fname', $fname);
-		$statement->bindValue(':lname', $lname);
-		$statement->bindValue(':Email', $email);
+		$sql = "INSERT INTO `users`(`Username`, `Password`, `First name`, `Last name`, `E-mail`)
+			VALUES ('$user','$hashPass','$fname' ,'$lname','$email')";
+
+		$conn->exec($sql);
         $statement->execute();
 
 	}
