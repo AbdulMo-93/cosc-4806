@@ -1,6 +1,4 @@
 <?php require_once '../app/views/templates/headerPublic.php' ?>
-
-
 <html>
 <body>
 
@@ -11,6 +9,8 @@
 		<input type="password" name="password"><br/>
 		<br/>		
 		<input type="submit" value="Login">
+		
+		
 		
 	</form>
 	<br/>

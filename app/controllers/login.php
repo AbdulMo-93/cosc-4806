@@ -25,8 +25,7 @@ class Login extends Controller {
         if ($user->auth == TRUE) {
             $_SESSION['auth'] = true;
         }
-        
-        header('Location: /home');
+       header('Location: /home');
     }
 	
 	public function register () {
