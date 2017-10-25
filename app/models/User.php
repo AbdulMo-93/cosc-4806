@@ -26,18 +26,19 @@ class User {
         $statement->execute();
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 		
-		$statement2 = $db->prepare("select * from users
+		$statement = $db->prepare("select * from users
                                 WHERE Password = :pass;");
-		$statement2->bindValue(':pass', $this->password);
-        $statement2->execute();
-        $rows2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+		$statement->bindValue(':pass', $this->password);
+        $statement->execute();
+        $rows2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+		$hash_pwd = $row2['Password'];
 		
-		//print_r ($rows2); die;
 		if (!empty($rows) && !empty($rows2)) {
-			$this->auth = true;
-			$_SESSION['username'] = $rows[0]['username'];
-			$_SESSION['password'] = $rows[0]['password'];
+				$this->auth = true;
+				$_SESSION['username'] = $rows[0]['username'];
+				$_SESSION['password'] = $rows[0]['password'];
 		}
+		
     }
 	
 	public function register ($username, $password, $fname, $lname, $email) {
