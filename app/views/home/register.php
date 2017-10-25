@@ -10,18 +10,18 @@
 		Password<br/>
 		<input type="password" name="password"><br/>
 		First Name:<br/>
-		<input type="text" name="FirstName"><br/>
+		<input type="text" name="firstName"><br/>
 		last Name:<br/>
-		<input type="text" name="LastName"><br/>
+		<input type="text" name="lastName"><br/>
 		E-mail:<br/>
-		<input type="text" name="Email"><br/>
-		  <br/>
+		<input type="text" name="email"><br/>
+		<br/>
+		<button type="submit" > Submit </button>		  <br/>
+		<br/>
 	</form>
 </body>
 </html>
 			</form>
-			<a href="/login/register"> Sign up here </a>
-			<br/><br/>
 			<a href="/login/index"> Back to login page! </a>
         </div>
     </div>

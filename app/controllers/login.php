@@ -29,15 +29,16 @@ class Login extends Controller {
     }
 	
 	public function register () {
-		$user = $this->model('User');
 		
+		$user = $this->model('User');
+	
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			$fname  = $_POST['FirstName'];
-			$lname = $_POST['LastName'];
-			$email = $_POST['Email'];
-			
+			$fname  = $_POST['firstName'];
+			$lname = $_POST['lastName'];
+			$email = $_POST['email'];
+						
 			$user->register($username, $password, $fname, $lname, $email);
 			$_SESSION['auth'] = true;
 		}
