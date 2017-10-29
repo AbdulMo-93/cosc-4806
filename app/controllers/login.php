@@ -40,7 +40,6 @@ class Login extends Controller {
 			$email = $_POST['email'];
 						
 			$user->register($username, $password, $fname, $lname, $email);
-			$_SESSION['auth'] = true;
 		}
 		
 		$this->view('home/register');

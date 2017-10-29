@@ -1,24 +1,32 @@
+<!DOCTYPE HTML>
 <?php require_once '../app/views/templates/headerPublic.php' ?>
 <html>
-<body>
 
-	<form method="post" action="/login/index">
-		Username:<br/>
+<body>
+	<form 
+	
+	method="post" action="/login/index">
+		<h1>Username:<br/></h1>
 		<input type="text" name="username"><br/>
-		Password<br/>
+		<h1> Password:<br/></h1>
 		<input type="password" name="password"><br/>
+		
 		<br/>		
 		<input type="submit" value="Login">
-		
-		
-		
-	</form>
+		<br/>
+	<br/>
+	<a href="/Reports/attempts"> Report </a>
 	<br/>
 	<br/>
-	<a href="/reports/attempts"> Report </a>
-	<br/>
-	<br/>
+
 	<a href="/login/register"> Create Account </a>
+	<a href='#' class='button'>Button</a>
+
+
+
+
+	</form>
+
 </body>
 </html>
 

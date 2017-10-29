@@ -1,7 +1,8 @@
+<!DOCTYPE HTML>
 <?php
 	
-	echo "Hello, You are in";
-	echo " Date is " . date("Y/m/d") . " Time is " . date("h/i/s");
+	echo "Hello " . $_SESSION['username']." You are in, ".
+	"Date is " . date("Y/m/d") . " Time is " . date("h/i/s");
 	//for refresh page skip
 	if (!empty($_SESSION['authenticated '])){ 
 		header("Location: /logout");

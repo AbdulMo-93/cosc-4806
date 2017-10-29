@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <?php require_once '../app/views/templates/headerPublic.php' ?>
 <html>
 <body>
