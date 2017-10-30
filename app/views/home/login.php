@@ -20,10 +20,6 @@
 	<br/>
 
 	<a href="/login/register"> Create Account </a>
-	<a href='#' class='button'>Button</a>
-
-
-
 
 	</form>
 
