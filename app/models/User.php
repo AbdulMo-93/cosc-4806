@@ -10,10 +10,53 @@ class User {
 	public $email;
 	public $att;
 	public $timein;
-
+	public $subjects;
+	public $description;
+	public $id;
+	
     public function __construct() {
         
     }
+
+public function get_reminders () {
+		$db = db_connect();
+        $statement = $db->prepare("SELECT * FROM reminders
+                                WHERE username = :username AND deleted = 0;");
+        $statement->bindValue(':username', $_SESSION['username']);
+		
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $rows;
+	}
+	
+	public function update ($id,$subjects,$description) {
+		$db = db_connect();
+        $statement = $db->prepare("UPDATE reminders SET subjects = :subjects, Description = :description WHERE
+                                id = :id;");
+        $statement->bindValue(':id', 			$id);
+		$statement->bindValue(':subjects',      $subjects);
+        $statement->bindValue(':description',   $description);
+        $statement->execute();
+	}
+	
+	public function removeItem($id) {
+		$db = db_connect();
+        $statement = $db->prepare("UPDATE reminders SET deleted = 1 WHERE id = :id");
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+	}
+	public function addToTable($username,$subjects,$description){
+        $db = db_connect();
+        $statement = $db->prepare("INSERT INTO reminders (Username, subjects,Description)"
+                . "VALUES (:username, :subjects, :description);");
+        $statement->bindValue(':username',      $username);
+        $statement->bindValue(':subjects',      $subjects);
+        $statement->bindValue(':description',   $description);
+        $statement->execute();
+
+    }
+
+
 
     public function authenticate() {
         /*
@@ -73,7 +116,7 @@ class User {
 	
 	public function register ($username, $password, $fname, $lname, $email) {
 		
-		if(strlen($password) >= 8){
+		if(strlen($password) < 8){
 			
 			$hashPass = password_hash($password, PASSWORD_DEFAULT);
 			

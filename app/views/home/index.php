@@ -1,17 +1,11 @@
 <!DOCTYPE HTML>
-<?php
-	
-	echo "Hello " . $_SESSION['username']." You are in, ".
-	"Date is " . date("Y/m/d") . " Time is " . date("h/i/s");
-	//for refresh page skip
-	if (!empty($_SESSION['authenticated '])){ 
-		header("Location: /logout");
-	}
-	else{
-		$_SESSION['authenticated ']=true;
-	}
-?>
+<?php require_once '../app/views/templates/header.php'?>
+<br/>
+<br/>
+<br/>
+	<h1>Hello</h1> <?php $_SESSION['username'];?> 
+	<h1>You are in,  Date is </h1> <?php date("Y/m/d");?> 
+	<h1>Time is </h1>  <?php date("h/i/s");?> 
 	<br/>
-	<a href="/logout"> logout! </a>
-
+	<a href="/remind/createRem">Reminders!</a>
 <?php require_once '../app/views/templates/footer.php' ?>
