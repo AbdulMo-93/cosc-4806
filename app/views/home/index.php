@@ -3,9 +3,9 @@
 <br/>
 <br/>
 <br/>
-	<h1>Hello</h1> <?php $_SESSION['username'];?> 
-	<h1>You are in,  Date is </h1> <?php date("Y/m/d");?> 
-	<h1>Time is </h1>  <?php date("h/i/s");?> 
+	<h1>Hello <?=$_SESSION['username']?>.</h1>  
+	<h1>You are in, the Date and Time: <?=date("Y/m/d")?>  </h1> 
+	<h1>Time is <?=date("h/i")?></h1>   
 	<br/>
 	<a href="/remind/createRem">Reminders!</a>
 <?php require_once '../app/views/templates/footer.php' ?>

@@ -18,7 +18,7 @@ class User {
         
     }
 
-public function get_reminders () {
+	public function get_reminders () {
 		$db = db_connect();
         $statement = $db->prepare("SELECT * FROM reminders
                                 WHERE username = :username AND deleted = 0;");

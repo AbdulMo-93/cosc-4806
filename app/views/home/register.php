@@ -22,9 +22,5 @@
 	</form>
 </body>
 </html>
-			</form>
-			<a href="/login/index"> Back to login page! </a>
-        </div>
-    </div>
-
-    <?php require_once '../app/views/templates/footer.php' ?>
+		<a href="/login/index"> Back to login page! </a>      
+<?php require_once '../app/views/templates/footer.php' ?>

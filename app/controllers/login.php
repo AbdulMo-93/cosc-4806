@@ -41,7 +41,6 @@ class Login extends Controller {
 						
 			$user->register($username, $password, $fname, $lname, $email);
 		}
-		
 		$this->view('home/register');
 	}
 }

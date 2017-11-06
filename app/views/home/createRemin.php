@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
-
 <?php require_once '../app/views/templates/headerPublic.php' ?>
-
 <html>
 <body>
   <br/>Creating Reminder<br/>
@@ -18,5 +16,4 @@
 	</form>
 </body>
 </html>
-
-    <?php require_once '../app/views/templates/footer.php' ?>
+<?php require_once '../app/views/templates/footer.php' ?>
