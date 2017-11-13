@@ -56,13 +56,8 @@ class User {
 
     }
 
-
-
     public function authenticate() {
-        /*
-         * if username and password good then
-         * $this->auth = true;
-         */
+ 
 		$db = db_connect();
         $statement = $db->prepare("select Username, Password from users
                                 WHERE Username = :name;");
