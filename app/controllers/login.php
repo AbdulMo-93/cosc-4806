@@ -31,12 +31,13 @@ class Login extends Controller {
            $statement->execute();
            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
            $_SESSION['lastLogTime'] = $rows[0]['TimeLogin'];
+
           // total day login attempts
            $curr = date('Y-m-d');
            $start = $curr . ' 00:00:00';
            $end = $curr . ' 23:59:59';
            $db = db_connect();
-           $statement = $db->prepare(" SELECT sum(Attempts) as attempt from log where :start < TimeLogin AND TimeLogin < :end group by Username;");
+           $statement = $db->prepare(" SELECT sum(Attempts) as attempt from log where :start < TimeLogin AND TimeLogin < :end");
            $statement->bindValue(':start', $start);
            $statement->bindValue(':end', $end);
            $statement->execute();

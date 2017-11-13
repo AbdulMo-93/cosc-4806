@@ -1,7 +1,5 @@
 <?php require_once '../app/views/templates/header.php'?>
-<br/>
-<br/>
-<br/>
+
 <h2>Reminder Page</h2>
 <table class='table table-striped table-condensed'>
 	<tr>

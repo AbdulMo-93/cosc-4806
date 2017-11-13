@@ -6,15 +6,15 @@
 	Creating Account<br/>
 	  <br/>
 	<form method="post" action="/login/register">
-		Username:<br/>
+		<h3>Username:</h3>
 		<input type="text" name="username"><br/>
-		Password<br/>
+		<h3>Password</h3>
 		<input type="password" name="password"><br/>
-		First Name:<br/>
+		<h3>First Name:</h3>
 		<input type="text" name="firstName"><br/>
-		last Name:<br/>
+		<h3>last Name:</h3>
 		<input type="text" name="lastName"><br/>
-		E-mail:<br/>
+		<h3>E-mail:</h3>
 		<input type="text" name="email"><br/>
 		<br/>
 		<button type="submit" > Submit </button>		  <br/>
@@ -22,5 +22,4 @@
 	</form>
 </body>
 </html>
-		<a href="/login/index"> Back to login page! </a>      
-<?php require_once '../app/views/templates/footer.php' ?>
+		<a href="/login/index"> Back to login page! </a>    

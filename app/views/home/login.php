@@ -19,4 +19,3 @@
 	</form>
 </body>
 </html>
-<?php require_once '../app/views/templates/footer.php' ?>
