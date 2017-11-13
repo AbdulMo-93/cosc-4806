@@ -1,7 +1,7 @@
 <footer class="footer">    
     <div class="row">
         <div class="col-lg-12">
-        	<h5>Total login attempts on : <?=date('Y-m-d')?></h5>
+        	<h5>Total login attempts on : <?=date('Y-m-d')?> is: <?=$_SESSION['totalAttempts']?></h5>
         </div>
     </div>
 </footer>

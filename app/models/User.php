@@ -106,7 +106,6 @@ class User {
 			$_SESSION['username'] = $rows[0]['Username'];
 			$_SESSION['password'] = $rows[0]['Password'];
 		}
-		
     }
 	
 	public function register ($username, $password, $fname, $lname, $email) {
