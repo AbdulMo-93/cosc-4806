@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php require_once '../app/views/templates/header.php'?>
 
-<form method="post" action="/login/register">
+<form method="post" action="/Reports/totalLogByUser">
 		<h3>Date from:</h3>
 		<input type="text" name="dateFrom"><br/>
 		<h3>Date to</h3>
@@ -10,4 +10,4 @@
 		<br/>
 		<br/>
 </form>
-<h1>The reminders in date range is <?= print_r($_SESSION['totalRemInDate']) ?></h1>
+<h1>The reminders in date range is: <?= print_r($_SESSION['totalRemInDate']) ?></h1>

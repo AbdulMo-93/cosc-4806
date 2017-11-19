@@ -42,6 +42,9 @@ if (isset($_SESSION['auth']) != 1) {
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/home">Home</a></li>
                                 <li><a href="/remind/createRem">Reminder</a></li>
+                                <li><a href="/Reports/mostReminders">Most Reminders</a></li>
+                                <li><a href="/Reports/remindersInDate">Reminder in a date range</a></li>
+                                <li><a href="/Reports/totalLogByUser">Reminders by user</a></li>
                             </ul>
                         </li>
                     </ul>

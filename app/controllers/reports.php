@@ -27,20 +27,21 @@ class Reports extends Controller {
 	        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 	        $_SESSION['totalRemInDate'] = $rows;
 	    }
-		$this->view('reports/mostRem');
+		$this->view('reports/reminderInDate');
     }
 
     public function totalLogByUser() {
 		$user = $this->model('User');
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$userInput = $_POST['Username'];
-			
 			$db = db_connect();
 	        $statement = $db->prepare(" SELECT Attempts FROM log WHERE username =:username;");
 	        $statement->bindValue(':username', $userInput);
 	        $statement->execute();
 	        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 	        $_SESSION['attTotalByUser'] = $rows[0]['Attempts'];
+
+
 	    }
 		$this->view('reports/totalLoginByUsers');
     }

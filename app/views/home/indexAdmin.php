@@ -9,7 +9,9 @@
 	<br/>
 	<a href="/Reports/mostReminders">Most user Reminders!</a>
 	<br/>
-	<a href="/Reports/reminderInDate">Find Reminders in a spacific date!</a>
+	<a href="/Reports/remindersInDate">Find Reminders in a spacific date!</a>
+	<br/>
+	<a href="/Reports/totalLogByUser">Find total attempts by username!</a>
 
 <?php require_once '../app/views/templates/footerPublic.php' ?>
 <?php require_once '../app/views/templates/footer.php' ?>
