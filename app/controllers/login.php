@@ -23,6 +23,13 @@ class Login extends Controller {
         $user->authenticate();
 
         if ($user->auth == TRUE) {
+          //check if admin
+           $db = db_connect();
+           $statement = $db->prepare(" SELECT Permission FROM users WHERE username =:username;");
+           $statement->bindValue(':username', $_SESSION['username']);
+           $statement->execute();
+           $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+           $_SESSION['lastLogTime'] = $rows[0]['Permission'];
 
           // last login time
            $db = db_connect();
