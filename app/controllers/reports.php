@@ -3,6 +3,9 @@
 class Reports extends Controller {
     public function mostReminders() {
 		$user = $this->model('User');
+		if($_SESSION['Permission']!=3){
+			header('Location: /home');
+		}
 
 		$db = db_connect();
         $statement = $db->prepare(" SELECT Username, COUNT(Username) as max FROM reminders GROUP BY Username order by max desc limit 1;");
@@ -15,6 +18,9 @@ class Reports extends Controller {
 
     public function remindersInDate() {
 		$user = $this->model('User');
+		if($_SESSION['Permission']!=3){
+			header('Location: /home');
+		}
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$dateFrom = $_POST['dateFrom'];
 			$dateTo = $_POST['dateTo'];
@@ -32,6 +38,9 @@ class Reports extends Controller {
 
     public function totalLogByUser() {
 		$user = $this->model('User');
+		if($_SESSION['Permission']!=3){
+			header('Location: /home');
+		}
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$userInput = $_POST['Username'];
 			$db = db_connect();
