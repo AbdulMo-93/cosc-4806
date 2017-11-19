@@ -29,7 +29,7 @@ class Login extends Controller {
            $statement->bindValue(':username', $_SESSION['username']);
            $statement->execute();
            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-           $_SESSION['lastLogTime'] = $rows[0]['Permission'];
+           $_SESSION['Permission'] = $rows[0]['Permission'];
 
           // last login time
            $db = db_connect();
@@ -52,11 +52,12 @@ class Login extends Controller {
            $attempt = 0;
           
            foreach($rows as $row){
-               $attempt += (int)$row['attempt'];
+              $attempt += (int)$row['attempt'];
            }
            $_SESSION['totalAttempts'] = $attempt;
 
-           $_SESSION['auth'] = true;
+          $_SESSION['auth'] = true;
+
          }
         header('Location: /home');
     }
