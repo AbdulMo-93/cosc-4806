@@ -23,6 +23,7 @@ class Login extends Controller {
         $user->authenticate();
 
           if ($user->auth == TRUE) {
+
             //check if admin
            $db = db_connect();
            $statement = $db->prepare(" SELECT Permission FROM users WHERE username =:username;");
@@ -62,8 +63,7 @@ class Login extends Controller {
 
          if (isset($_SESSION['username'])) {
             $user = $user->getUser();
-           // echo 1;die;
-            if ($_SESSION['birthday'] == null; || $_SESSION['phone'] == null|| $_SESSION['firstname']== null || $_SESSION['lastname'] == null || $_SESSION['email'] ==null){
+            if (empty($_SESSION['birthday']) || empty($_SESSION['phone'] )|| empty($_SESSION['firstname']) || empty($_SESSION['lastname'])|| empty($_SESSION['email'] )){
                 $this->view('profiles/indexProfile');
             }else{
                echo 11;die;

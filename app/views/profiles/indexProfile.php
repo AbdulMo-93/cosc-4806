@@ -1,19 +1,33 @@
 <?php require_once '../app/views/templates/header.php' ?>
 
+
 <div class="col">
     <form class="form-horizontal"
-          action="<?=UPDATE_PROFILE?>"
+          action="<?=updateprofile?>"
           method="post">
+        
         <div class="row">
-            <label class="col-sm-4 control-label">Password</label>
+            <label class="col-sm-4 control-label">Birthday</label>
             <div class="col-sm-8">
-                <input type="password"
-                       name="password"
-                       value="<?=$data->password?>"
+                <input type="date"
+                       name="birthday"
+                       class="form-control"
+                       value="<?=$data->dob?>"/>
+            </div>
+        </div>
+            <br>
+
+        <div class="row">
+            <label class="col-sm-4 control-label">Phone Number</label>
+            <div class="col-sm-8">
+                <input type="text"
+                       name="phone"
+                       value="<?=$data->phone?>"
                        class="form-control"/>
             </div>
         </div>
-        
+            <br>
+
         <div class="row">
             <label class="col-sm-4 control-label">First Name</label>
             <div class="col-sm-8">
@@ -23,7 +37,7 @@
                        class="form-control"/>
             </div>
         </div>
-        
+              <br>
         <div class="row">
             <label class="col-sm-4 control-label">Last Name</label>
             <div class="col-sm-8">
@@ -33,26 +47,7 @@
                        class="form-control"/>
             </div>
         </div>
-        
-        <div class="row">
-            <label class="col-sm-4 control-label">DOB</label>
-            <div class="col-sm-8">
-                <input type="date"
-                       name="dob"
-                       class="form-control"
-                       value="<?=$data->dob?>"/>
-            </div>
-        </div>
-        
-        <div class="row">
-            <label class="col-sm-4 control-label">Phone</label>
-            <div class="col-sm-8">
-                <input type="text"
-                       name="phone"
-                       value="<?=$data->phone?>"
-                       class="form-control"/>
-            </div>
-        </div>
+              <br>
         
         <div class="row">
             <label class="col-sm-4 control-label">Email</label>
@@ -63,7 +58,7 @@
                        class="form-control"/>
             </div>
         </div>
-        
+              <br>
         <div class="row">
             <label class="col-sm-4"></label>
             <div class="col-sm-8">
