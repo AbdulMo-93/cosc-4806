@@ -14,7 +14,6 @@ class PFile extends Controller {
      public function updateprofile() {
         $user = $this->model('User');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $user->username = $_SESSION['username'];
             $user->birthday = $_POST['birthday'];
             $user->phone = $_POST['phone'];
             $user->fname = $_POST['firstname'];
