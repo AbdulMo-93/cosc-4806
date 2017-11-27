@@ -6,6 +6,11 @@
 	<h1>Time is <?=date("h/i")?></h1>   
 	<br/>
 	<a href="/remind/createRem">Reminders!</a>
+
+<br/>
+	<a href="/PFile/profileIndex">Profile!</a>
+
+
 <?php require_once '../app/views/templates/footerPublic.php' ?>
 <?php require_once '../app/views/templates/footer.php' ?>
 

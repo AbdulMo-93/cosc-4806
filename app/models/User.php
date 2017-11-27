@@ -13,7 +13,9 @@ class User {
 	public $subjects;
 	public $description;
 	public $id;
-	
+	public $phone;
+	public $birthday;
+
     public function __construct() {
         
     }
@@ -54,6 +56,48 @@ class User {
         $statement->bindValue(':description',   $description);
         $statement->execute();
 
+    }
+
+    public function addProfile($username) {
+        $db = db_connect();
+        $statement = $db->prepare("INSERT INTO profile (Username, Birthday, PhoneNumber, FirstName, LastName, Email)"
+                . " VALUES (:username,:birthday, :phoneNumber, :firstName, :lastName, :email);");
+        $statement->bindValue(':username',      $username);
+        $statement->bindValue(':birthday',		null);
+        $statement->bindValue(':phoneNumber', 	'');
+        $statement->bindValue(':firstName', 	'');
+        $statement->bindValue(':lastName',		'');
+        $statement->bindValue(':email',			'');
+        $statement->execute();
+    }
+
+     public function getUser() {
+        $db = db_connect();
+        $statement = $db->prepare("select * from profile where Username = :username ");
+        $statement->bindValue("username", $this->username);
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($rows){
+        	$_SESSION['birthday']  = $rows[0]['Birthday'];
+            $_SESSION['phone']  = $rows[0]['PhoneNumber'];
+            $_SESSION['firstname']  = $rows[0]['FirstName'];
+            $_SESSION['lastname']  = $rows[0]['LastName'];
+            $_SESSION['email']  = $rows[0]['Email'];
+        }
+        return $rows;
+    }
+    public function updateProfile() {
+        $db = db_connect();
+        $statement = $db->prepare("update Profile set Username = :username,Birthday = :birthday, PhoneNumber = :phoneNumber,FirstName = :firstName,  LastName = :lastName,  Email = :email where Username = :username;");
+
+      	$statement->bindValue(':username',      $this->username);
+        $statement->bindValue(':birthday',		$this->birthday);
+        $statement->bindValue(':phoneNumber', 	$this->phone);
+        $statement->bindValue(':firstName', 	$this->fname);
+        $statement->bindValue(':lastName',		$this->lname);
+        $statement->bindValue(':email',			$this->email);
+        $statement->execute();
     }
 
     public function authenticate() {
