@@ -19,6 +19,42 @@ class User {
     public function __construct() {
         
     }
+     public function report(){
+        $db = db_connect();
+        $statement = $db->prepare(""
+                . " select * from users join (select Username, count(*) as count from reminders group by Username) as r on Username = :username join personaldetails p on Username = :username join log l on Username = :username;");
+        $statement->bindValue(':username',      $username);
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+
+    public function getReport($mostReminder = null, $from = null, $to = null, $totalLogin = null) {
+        $db = db_connect();
+        $query = "SELECT * FROM reminders inner join log l on Username = :username where deleted = 0";
+
+        if ($from != null) {
+            $query .= " and createdDate >= '" . $from . "'";
+        }
+
+        if ($to != null) {
+            $query .= " and createdDate <= '" . $to . "'";
+        }
+
+        if ($mostReminder != null) {
+            $query .= " and Attempt = (select max(Attempt) from log)";
+        }
+        
+        if($totalLogin != null){
+            $query .= " and Attempt = " . $totalLogin;
+        }
+        
+        $statement->bindValue(':username',      $username);
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
 
 	public function get_reminders () {
 		$db = db_connect();
